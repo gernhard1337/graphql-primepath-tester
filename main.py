@@ -1,16 +1,78 @@
-# This is a sample Python script.
+import matplotlib.pyplot as plt
+import networkx as nx
+import json
+import requests
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+testUrl = "http://localhost:4000/graphql"
+
+# Abfrage zur Introspektion des Schemas
+introspection_query = """
+    query{
+        __schema {
+            types {
+                name
+                fields {
+                    name
+                    type {
+                        name
+                        kind
+                        ofType {
+                            name
+                            kind
+                        }
+                    }
+                }
+            }
+        }
+    }
+"""
+
+# Ausführen der Schema-Abfrage
+r = requests.post(testUrl, json={'query': introspection_query})
+json_data = json.loads(r.text)
+with open('data.json', 'w') as f:
+    json.dump(json_data, f)
+
+# Erstellen Sie ein NetworkX-Graph aus dem GraphQL-Schema
+graph = nx.DiGraph()
+
+baseDatatypes = ["Boolean", "String", "ID", "Int", "Date", "Float"]
+nonSchemaTypePrefix = "__"
+
+def add_edges(graph, type_name, type_dict):
+    if type_name.startswith(nonSchemaTypePrefix) or type_name in baseDatatypes:
+        return
+    else:
+        for adjacentNode in type_dict[type_name]['fields']:
+            if graph.has_edge(adjacentNode['type']['name'], type_name):
+                return
+            else:
+                if adjacentNode['type']['name']:
+                    graph.add_edge(type_name, adjacentNode['type']['name'])
+                    add_edges(graph, adjacentNode['type']['name'], type_dict)
+                if adjacentNode['type']['kind'] == 'LIST':
+                    graph.add_edge(type_name, adjacentNode['type']['ofType']['name'])
+                    add_edges(graph, adjacentNode['type']['ofType']['name'], type_dict)
+
+type_dict = {gqltype['name']: gqltype for gqltype in json_data['data']['__schema']['types']}
+
+with open('dict.json', "w") as f:
+    json.dump(type_dict, f)
+
+add_edges(graph, "Query", type_dict)
+
+def find_prime_paths(graph, start_node):
+    return []
+
+start_node = "Query"
+prime_paths = find_prime_paths(graph, start_node)
+
+for path in prime_paths:
+    print(path)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+
+nx.draw(graph, with_labels=True)
+plt.show()
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

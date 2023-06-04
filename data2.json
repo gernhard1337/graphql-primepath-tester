@@ -1,0 +1,4099 @@
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "name": "Address",
+          "fields": [
+            {
+              "name": "address",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "city",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "state",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "String",
+          "fields": null
+        },
+        {
+          "name": "Capsule",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "landings",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "missions",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "CapsuleMission",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "original_launch",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reuse_count",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "status",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "ID",
+          "fields": null
+        },
+        {
+          "name": "Int",
+          "fields": null
+        },
+        {
+          "name": "CapsuleMission",
+          "fields": [
+            {
+              "name": "flight",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "CapsulesFind",
+          "fields": null
+        },
+        {
+          "name": "Core",
+          "fields": [
+            {
+              "name": "asds_attempts",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "asds_landings",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "block",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "missions",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "CapsuleMission",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "original_launch",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reuse_count",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rtls_attempts",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rtls_landings",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "status",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "water_landing",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boolean",
+          "fields": null
+        },
+        {
+          "name": "CoreMission",
+          "fields": [
+            {
+              "name": "flight",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "CoresFind",
+          "fields": null
+        },
+        {
+          "name": "Date",
+          "fields": null
+        },
+        {
+          "name": "Distance",
+          "fields": [
+            {
+              "name": "feet",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "meters",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Float",
+          "fields": null
+        },
+        {
+          "name": "Dragon",
+          "fields": [
+            {
+              "name": "active",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "crew_capacity",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "diameter",
+              "type": {
+                "name": "Distance",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "dry_mass_kg",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "dry_mass_lb",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "first_flight",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "heat_shield",
+              "type": {
+                "name": "DragonHeatShield",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "height_w_trunk",
+              "type": {
+                "name": "Distance",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_payload_mass",
+              "type": {
+                "name": "Mass",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_payload_vol",
+              "type": {
+                "name": "Volume",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "orbit_duration_yr",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "pressurized_capsule",
+              "type": {
+                "name": "DragonPressurizedCapsule",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "return_payload_mass",
+              "type": {
+                "name": "Mass",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "return_payload_vol",
+              "type": {
+                "name": "Volume",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sidewall_angle_deg",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "thrusters",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "DragonThrust",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "trunk",
+              "type": {
+                "name": "DragonTrunk",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wikipedia",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "DragonHeatShield",
+          "fields": [
+            {
+              "name": "dev_partner",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "material",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size_meters",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "temp_degrees",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "DragonPressurizedCapsule",
+          "fields": [
+            {
+              "name": "payload_volume",
+              "type": {
+                "name": "Volume",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "DragonThrust",
+          "fields": [
+            {
+              "name": "amount",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fuel_1",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fuel_2",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "pods",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "thrust",
+              "type": {
+                "name": "Force",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "DragonTrunk",
+          "fields": [
+            {
+              "name": "cargo",
+              "type": {
+                "name": "DragonTrunkCargo",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "trunk_volume",
+              "type": {
+                "name": "Volume",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "DragonTrunkCargo",
+          "fields": [
+            {
+              "name": "solar_array",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "unpressurized_cargo",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Force",
+          "fields": [
+            {
+              "name": "kN",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lbf",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "HistoriesResult",
+          "fields": [
+            {
+              "name": "data",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "History",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "name": "Result",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "History",
+          "fields": [
+            {
+              "name": "details",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "event_date_unix",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "event_date_utc",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "flight",
+              "type": {
+                "name": "Launch",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "links",
+              "type": {
+                "name": "Link",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "title",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "HistoryFind",
+          "fields": null
+        },
+        {
+          "name": "Info",
+          "fields": [
+            {
+              "name": "ceo",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "coo",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "cto",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "cto_propulsion",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "employees",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "founded",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "founder",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "headquarters",
+              "type": {
+                "name": "Address",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_sites",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "links",
+              "type": {
+                "name": "InfoLinks",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "summary",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "test_sites",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "valuation",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "vehicles",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "InfoLinks",
+          "fields": [
+            {
+              "name": "elon_twitter",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "flickr",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "twitter",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "website",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Landpad",
+          "fields": [
+            {
+              "name": "attempted_landings",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "details",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "full_name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "landing_type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "location",
+              "type": {
+                "name": "Location",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "status",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "successful_landings",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wikipedia",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Launch",
+          "fields": [
+            {
+              "name": "details",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "is_tentative",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_date_local",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_date_unix",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_date_utc",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_site",
+              "type": {
+                "name": "LaunchSite",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_success",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_year",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "links",
+              "type": {
+                "name": "LaunchLinks",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mission_id",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "mission_name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rocket",
+              "type": {
+                "name": "LaunchRocket",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ships",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Ship",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "static_fire_date_unix",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "static_fire_date_utc",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "telemetry",
+              "type": {
+                "name": "LaunchTelemetry",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "tentative_max_precision",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "upcoming",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "LaunchFind",
+          "fields": null
+        },
+        {
+          "name": "LaunchLinks",
+          "fields": [
+            {
+              "name": "article_link",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "flickr_images",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "mission_patch",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mission_patch_small",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "presskit",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reddit_campaign",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reddit_launch",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reddit_media",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reddit_recovery",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "video_link",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wikipedia",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "LaunchRocket",
+          "fields": [
+            {
+              "name": "fairings",
+              "type": {
+                "name": "LaunchRocketFairings",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "first_stage",
+              "type": {
+                "name": "LaunchRocketFirstStage",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rocket",
+              "type": {
+                "name": "Rocket",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rocket_name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rocket_type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "second_stage",
+              "type": {
+                "name": "LaunchRocketSecondStage",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "LaunchRocketFairings",
+          "fields": [
+            {
+              "name": "recovered",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "recovery_attempt",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reused",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ship",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "LaunchRocketFirstStage",
+          "fields": [
+            {
+              "name": "cores",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "LaunchRocketFirstStageCore",
+                  "kind": "OBJECT"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "LaunchRocketFirstStageCore",
+          "fields": [
+            {
+              "name": "block",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "core",
+              "type": {
+                "name": "Core",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "flight",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "gridfins",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "land_success",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "landing_intent",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "landing_type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "landing_vehicle",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "legs",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reused",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "LaunchRocketSecondStage",
+          "fields": [
+            {
+              "name": "block",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "payloads",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Payload",
+                  "kind": "OBJECT"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "LaunchSite",
+          "fields": [
+            {
+              "name": "site_id",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "site_name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "site_name_long",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "LaunchTelemetry",
+          "fields": [
+            {
+              "name": "flight_club",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "LaunchesPastResult",
+          "fields": [
+            {
+              "name": "data",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Launch",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "name": "Result",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Launchpad",
+          "fields": [
+            {
+              "name": "attempted_launches",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "details",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "location",
+              "type": {
+                "name": "Location",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "status",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "successful_launches",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "vehicles_launched",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Rocket",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "wikipedia",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Link",
+          "fields": [
+            {
+              "name": "article",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reddit",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wikipedia",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Location",
+          "fields": [
+            {
+              "name": "latitude",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "longitude",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "region",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mass",
+          "fields": [
+            {
+              "name": "kg",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lb",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mission",
+          "fields": [
+            {
+              "name": "description",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "manufacturers",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "payloads",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Payload",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "twitter",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "website",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wikipedia",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "MissionResult",
+          "fields": [
+            {
+              "name": "data",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Mission",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "name": "Result",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "MissionsFind",
+          "fields": null
+        },
+        {
+          "name": "Mutation",
+          "fields": [
+            {
+              "name": "delete_users",
+              "type": {
+                "name": "users_mutation_response",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "insert_users",
+              "type": {
+                "name": "users_mutation_response",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "update_users",
+              "type": {
+                "name": "users_mutation_response",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "ObjectID",
+          "fields": null
+        },
+        {
+          "name": "Payload",
+          "fields": [
+            {
+              "name": "customers",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "manufacturer",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nationality",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "norad_id",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Int",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "orbit",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "orbit_params",
+              "type": {
+                "name": "PayloadOrbitParams",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "payload_mass_kg",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "payload_mass_lbs",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "payload_type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reused",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "PayloadOrbitParams",
+          "fields": [
+            {
+              "name": "apoapsis_km",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "arg_of_pericenter",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "eccentricity",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "epoch",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "inclination_deg",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lifespan_years",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "longitude",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mean_anomaly",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mean_motion",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "periapsis_km",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "period_min",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "raan",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reference_system",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "regime",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "semi_major_axis_km",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "PayloadsFind",
+          "fields": null
+        },
+        {
+          "name": "Query",
+          "fields": [
+            {
+              "name": "capsule",
+              "type": {
+                "name": "Capsule",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "capsules",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Capsule",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "capsulesPast",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Capsule",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "capsulesUpcoming",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Capsule",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "company",
+              "type": {
+                "name": "Info",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "core",
+              "type": {
+                "name": "Core",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "cores",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Core",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "coresPast",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Core",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "coresUpcoming",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Core",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "dragon",
+              "type": {
+                "name": "Dragon",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "dragons",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Dragon",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "histories",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "History",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "historiesResult",
+              "type": {
+                "name": "HistoriesResult",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "history",
+              "type": {
+                "name": "History",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "landpad",
+              "type": {
+                "name": "Landpad",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "landpads",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Landpad",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "launch",
+              "type": {
+                "name": "Launch",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launchLatest",
+              "type": {
+                "name": "Launch",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launchNext",
+              "type": {
+                "name": "Launch",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launches",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Launch",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "launchesPast",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Launch",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "launchesPastResult",
+              "type": {
+                "name": "LaunchesPastResult",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launchesUpcoming",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Launch",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "launchpad",
+              "type": {
+                "name": "Launchpad",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launchpads",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Launchpad",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "payload",
+              "type": {
+                "name": "Payload",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "payloads",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Payload",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "roadster",
+              "type": {
+                "name": "Roadster",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rocket",
+              "type": {
+                "name": "Rocket",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rockets",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Rocket",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "rocketsResult",
+              "type": {
+                "name": "RocketsResult",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ship",
+              "type": {
+                "name": "Ship",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ships",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Ship",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "shipsResult",
+              "type": {
+                "name": "ShipsResult",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "users",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST"
+                }
+              }
+            },
+            {
+              "name": "users_aggregate",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "users_aggregate",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "users_by_pk",
+              "type": {
+                "name": "users",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Result",
+          "fields": [
+            {
+              "name": "totalCount",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Roadster",
+          "fields": [
+            {
+              "name": "apoapsis_au",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "details",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "earth_distance_km",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "earth_distance_mi",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "eccentricity",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "epoch_jd",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "inclination",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_date_unix",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_date_utc",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_mass_kg",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "launch_mass_lbs",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "longitude",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mars_distance_km",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mars_distance_mi",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "norad_id",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "orbit_type",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "periapsis_arg",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "periapsis_au",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "period_days",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "semi_major_axis_au",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "speed_kph",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "speed_mph",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wikipedia",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Rocket",
+          "fields": [
+            {
+              "name": "active",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "boosters",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "company",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "cost_per_launch",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "country",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "diameter",
+              "type": {
+                "name": "Distance",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "engines",
+              "type": {
+                "name": "RocketEngines",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "first_flight",
+              "type": {
+                "name": "Date",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "first_stage",
+              "type": {
+                "name": "RocketFirstStage",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "name": "Distance",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "landing_legs",
+              "type": {
+                "name": "RocketLandingLegs",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mass",
+              "type": {
+                "name": "Mass",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "payload_weights",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "RocketPayloadWeight",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "second_stage",
+              "type": {
+                "name": "RocketSecondStage",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "stages",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "success_rate_pct",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "wikipedia",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "RocketEngines",
+          "fields": [
+            {
+              "name": "engine_loss_max",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "layout",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "number",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "propellant_1",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "propellant_2",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "thrust_sea_level",
+              "type": {
+                "name": "Force",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "thrust_to_weight",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "thrust_vacuum",
+              "type": {
+                "name": "Force",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "version",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "RocketFirstStage",
+          "fields": [
+            {
+              "name": "burn_time_sec",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "engines",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fuel_amount_tons",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "reusable",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "thrust_sea_level",
+              "type": {
+                "name": "Force",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "thrust_vacuum",
+              "type": {
+                "name": "Force",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "RocketLandingLegs",
+          "fields": [
+            {
+              "name": "material",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "number",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "RocketPayloadWeight",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "kg",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lb",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "RocketSecondStage",
+          "fields": [
+            {
+              "name": "burn_time_sec",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "engines",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fuel_amount_tons",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "payloads",
+              "type": {
+                "name": "RocketSecondStagePayloads",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "thrust",
+              "type": {
+                "name": "Force",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "RocketSecondStagePayloadCompositeFairing",
+          "fields": [
+            {
+              "name": "diameter",
+              "type": {
+                "name": "Distance",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "name": "Distance",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "RocketSecondStagePayloads",
+          "fields": [
+            {
+              "name": "composite_fairing",
+              "type": {
+                "name": "RocketSecondStagePayloadCompositeFairing",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "option_1",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "RocketsResult",
+          "fields": [
+            {
+              "name": "data",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Rocket",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "name": "Result",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ship",
+          "fields": [
+            {
+              "name": "abs",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "active",
+              "type": {
+                "name": "Boolean",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "attempted_landings",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "class",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "course_deg",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "home_port",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "ID",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "image",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "imo",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "missions",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "ShipMission",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "mmsi",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "model",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "name": "ShipLocation",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "roles",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "speed_kn",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "status",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "successful_landings",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "url",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "weight_kg",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "weight_lbs",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "year_built",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "ShipLocation",
+          "fields": [
+            {
+              "name": "latitude",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "longitude",
+              "type": {
+                "name": "Float",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "ShipMission",
+          "fields": [
+            {
+              "name": "flight",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "ShipsFind",
+          "fields": null
+        },
+        {
+          "name": "ShipsResult",
+          "fields": [
+            {
+              "name": "data",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": "Ship",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "name": "Result",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "String_comparison_exp",
+          "fields": null
+        },
+        {
+          "name": "Subscription",
+          "fields": [
+            {
+              "name": "users",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST"
+                }
+              }
+            },
+            {
+              "name": "users_aggregate",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "users_aggregate",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "users_by_pk",
+              "type": {
+                "name": "users",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "Volume",
+          "fields": [
+            {
+              "name": "cubic_feet",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "cubic_meters",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "conflict_action",
+          "fields": null
+        },
+        {
+          "name": "order_by",
+          "fields": null
+        },
+        {
+          "name": "timestamptz",
+          "fields": null
+        },
+        {
+          "name": "timestamptz_comparison_exp",
+          "fields": null
+        },
+        {
+          "name": "users",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "uuid",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rocket",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "timestamptz",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "twitter",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "users_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "name": "users_aggregate_fields",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "users_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "name": "Int",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "max",
+              "type": {
+                "name": "users_max_fields",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "min",
+              "type": {
+                "name": "users_min_fields",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "users_aggregate_order_by",
+          "fields": null
+        },
+        {
+          "name": "users_arr_rel_insert_input",
+          "fields": null
+        },
+        {
+          "name": "users_bool_exp",
+          "fields": null
+        },
+        {
+          "name": "users_constraint",
+          "fields": null
+        },
+        {
+          "name": "users_insert_input",
+          "fields": null
+        },
+        {
+          "name": "users_max_fields",
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rocket",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": {
+                "name": "timestamptz",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "twitter",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "users_max_order_by",
+          "fields": null
+        },
+        {
+          "name": "users_min_fields",
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "rocket",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": {
+                "name": "timestamptz",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "twitter",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "users_min_order_by",
+          "fields": null
+        },
+        {
+          "name": "users_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "Int",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "returning",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "users_obj_rel_insert_input",
+          "fields": null
+        },
+        {
+          "name": "users_on_conflict",
+          "fields": null
+        },
+        {
+          "name": "users_order_by",
+          "fields": null
+        },
+        {
+          "name": "users_select_column",
+          "fields": null
+        },
+        {
+          "name": "users_set_input",
+          "fields": null
+        },
+        {
+          "name": "users_update_column",
+          "fields": null
+        },
+        {
+          "name": "uuid",
+          "fields": null
+        },
+        {
+          "name": "uuid_comparison_exp",
+          "fields": null
+        },
+        {
+          "name": "__Schema",
+          "fields": [
+            {
+              "name": "description",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "types",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST"
+                }
+              }
+            },
+            {
+              "name": "queryType",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "__Type",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "mutationType",
+              "type": {
+                "name": "__Type",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "subscriptionType",
+              "type": {
+                "name": "__Type",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            },
+            {
+              "name": "directives",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "__Type",
+          "fields": [
+            {
+              "name": "kind",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "__TypeKind",
+                  "kind": "ENUM"
+                }
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "specifiedByURL",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              }
+            },
+            {
+              "name": "interfaces",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              }
+            },
+            {
+              "name": "possibleTypes",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              }
+            },
+            {
+              "name": "enumValues",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              }
+            },
+            {
+              "name": "inputFields",
+              "type": {
+                "name": null,
+                "kind": "LIST",
+                "ofType": {
+                  "name": null,
+                  "kind": "NON_NULL"
+                }
+              }
+            },
+            {
+              "name": "ofType",
+              "type": {
+                "name": "__Type",
+                "kind": "OBJECT",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "__TypeKind",
+          "fields": null
+        },
+        {
+          "name": "__Field",
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "args",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST"
+                }
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "__Type",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "isDeprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "Boolean",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "deprecationReason",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "__InputValue",
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "__Type",
+                  "kind": "OBJECT"
+                }
+              }
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isDeprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "Boolean",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "deprecationReason",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "__EnumValue",
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isDeprecated",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "Boolean",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "deprecationReason",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "name": "__Directive",
+          "fields": [
+            {
+              "name": "name",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "String",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "name": "String",
+                "kind": "SCALAR",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isRepeatable",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": "Boolean",
+                  "kind": "SCALAR"
+                }
+              }
+            },
+            {
+              "name": "locations",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST"
+                }
+              }
+            },
+            {
+              "name": "args",
+              "type": {
+                "name": null,
+                "kind": "NON_NULL",
+                "ofType": {
+                  "name": null,
+                  "kind": "LIST"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "__DirectiveLocation",
+          "fields": null
+        }
+      ]
+    }
+  }
+}
