@@ -1,30 +1,116 @@
+# fremde Imports
 import matplotlib.pyplot as plt
 import networkx as nx
 import json
 import requests
+# eigene Imports
+import queries
+import datagenerator
+import pathfinder
 
 testUrl = "http://localhost:4000/graphql"
 
 # Abfrage zur Introspektion des Schemas
 introspection_query = """
-    query{
-        __schema {
-            types {
-                name
-                fields {
-                    name
-                    type {
-                        name
-                        kind
-                        ofType {
-                            name
-                            kind
-                        }
-                    }
-                }
-            }
-        }
+    query IntrospectionQuery {
+  __schema {
+    queryType {
+      name
     }
+    mutationType {
+      name
+    }
+    subscriptionType {
+      name
+    }
+    types {
+      ...FullType
+    }
+    directives {
+      name
+      description
+      locations
+      args {
+        ...InputValue
+      }
+    }
+  }
+}
+
+fragment FullType on __Type {
+  kind
+  name
+  description
+  fields(includeDeprecated: true) {
+    name
+    description
+    args {
+      ...InputValue
+    }
+    type {
+      ...TypeRef
+    }
+    isDeprecated
+    deprecationReason
+  }
+  inputFields {
+    ...InputValue
+  }
+  interfaces {
+    ...TypeRef
+  }
+  enumValues(includeDeprecated: true) {
+    name
+    description
+    isDeprecated
+    deprecationReason
+  }
+  possibleTypes {
+    ...TypeRef
+  }
+}
+
+fragment InputValue on __InputValue {
+  name
+  description
+  type {
+    ...TypeRef
+  }
+  defaultValue
+}
+
+fragment TypeRef on __Type {
+  kind
+  name
+  ofType {
+    kind
+    name
+    ofType {
+      kind
+      name
+      ofType {
+        kind
+        name
+        ofType {
+          kind
+          name
+          ofType {
+            kind
+            name
+            ofType {
+              kind
+              name
+              ofType {
+                kind
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 """
 
 # Ausführen der Schema-Abfrage
@@ -63,6 +149,10 @@ add_edges(graph, "Query", type_dict)
 
 def find_prime_paths(graph, start_node):
     return []
+
+
+
+
 
 start_node = "Query"
 prime_paths = find_prime_paths(graph, start_node)
