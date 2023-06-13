@@ -10,12 +10,10 @@ import graphhandler
 import querygenerator
 
 # testUrls die funktionieren sollten
-# https://rickandmortyapi.com/graphql
-# https://countries.trevorblades.com/graphql
-# https://beta.pokeapi.co/graphql/v1beta
+# https://rickandmortyapi.com/graphql -> works
+# https://countries.trevorblades.com/graphql -> works but not in fullest
 #
-#
-# http://localhost:4000/graphql -> run minimaltestServer2.js
+# http://localhost:4000/graphql -> run minimaltestServer2.js, all works
 testUrl = "http://localhost:4000/graphql"
 
 # Schema Query
@@ -54,19 +52,20 @@ own_failure = 0
 server_failures = 0
 testCount = 0
 for queryResult in queryResults:
+    print(queryResult[1].text)
+    print(queryResult[1].status_code)
     testCount = testCount + 1
-    if "data" in queryResult[1].text:
+    if queryResult[1].status_code == 200:
         successfull = successfull + 1
-    if "GRAPHQL_VALIDATION_FAILED" in queryResult[1].text:
+    if "GRAPHQL_VALIDATION_FAILED" in queryResult[1].text and queryResult[1].status_code == 400:
         own_failure = own_failure + 1
-    if "INTERNAL_SERVER_ERROR" in queryResult[1].text:
+    if "INTERNAL_SERVER_ERROR" in queryResult[1].text and queryResult[1].status_code == 400:
         server_failures = server_failures + 1
 
 print("Good Tests: " + str(successfull))
-print("Wrong Tests: " + str(own_failure))
-print("Failed Tests: " + str(server_failures))
+print("Own Failures from Tool Tests: " + str(own_failure))
+print("Confirmed Failed Tests: " + str(server_failures))
 print("Tests overall: " + str(testCount))
-
 
 
 
