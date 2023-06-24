@@ -1,3 +1,5 @@
+from itertools import permutations
+
 import networkx as nx
 
 baseDatatypes = ["Boolean", "String", "ID", "Int", "Date", "Float", "INPUT_OBJECT"]
@@ -6,13 +8,14 @@ nonSchemaTypePrefix = "__"
 
 def buildGraph(graph, type_name, type_dict):
     if type_name.startswith(nonSchemaTypePrefix) or type_name in baseDatatypes:
-        return
+        pass
     else:
         for adjacentNode in type_dict[type_name]['fields']:
-            if graph.has_edge(adjacentNode['type']['name'], type_name):
+            if graph.has_edge(type_name, adjacentNode['type']['name']):
                 return
             else:
                 if adjacentNode['type']['name'] and adjacentNode['type']['name'] not in baseDatatypes:
+
                     graph.add_edge(type_name, adjacentNode['type']['name'])
                     graph[type_name][adjacentNode['type']['name']]["data"] = adjacentNode
                     buildGraph(graph, adjacentNode['type']['name'], type_dict)
@@ -38,7 +41,7 @@ def isPrimePath(path, all_paths):
     return True
 
 
-def findPrimePaths(startnode, graph):
+def findPrimePaths_withFilter(startnode, graph):
     all_paths = []
     for end in graph:
         if end != startnode:
@@ -47,16 +50,90 @@ def findPrimePaths(startnode, graph):
     return prime_paths
 
 
-def findNodeCoveragePaths(graph):
-    return []
+def generate_prime_paths(startnode, graph):
+    def visit(node, path):
+        nonlocal paths
+        nonlocal visited
+        if node not in path:
+            path = path + [node]
+            if len(path) > 2 and any(path in p for p in paths if len(path) < len(p)):
+                pass
+            else:
+                paths = [p for p in paths if not (set(path).issubset(set(p)) and len(path) <= len(p))]
+                paths.append(path)
+                for next_node in graph[node]:
+                    visit(next_node, path)
+
+    paths = []
+    visited = set()
+    visit(startnode, [])
+    return paths
+
+def findNodeCoveragePaths(startnode, graph):
+    visited = {node: False for node in graph.nodes()}
+    paths = []
+
+    def dfs_path(node, visited, path):
+        visited[node] = True
+        path.append(node)
+
+        if set(path) == set(graph.nodes()):  # Wenn alle Knoten abgedeckt sind
+            paths.append(list(path))
+
+        for neighbour in graph.neighbors(node):
+            if visited[neighbour] is False:
+                dfs_path(neighbour, visited, path)
+
+        visited[node] = False
+        path.pop()
+
+    dfs_path(startnode, visited, [])
+
+    return paths
 
 
-def findEdgeCoveragePaths(graph):
-    return []
+def findEdgeCoveragePaths(startnode, graph):
+    visited = {edge: False for edge in graph.edges()}
+    paths = []
+
+    def dfs_path(node, visited, path):
+        for neighbour in graph.neighbors(node):
+            edge = (node, neighbour)
+            if visited[edge] is False:
+                visited[edge] = True
+                path.append(edge)
+
+                if set(path) == set(graph.edges()):
+                    paths.append(list(path))
+
+                dfs_path(neighbour, visited, path)
+                visited[edge] = False
+                path.pop()
+
+    dfs_path(startnode, visited, [])
+
+    return paths
 
 
-def findFullCoverage(graph):
-    return []
+def findCompletePathCoverage(startnode, graph):
+    visited = {node: False for node in graph.nodes()}
+    paths = []
+
+    def dfs_path(node, visited, path):
+        visited[node] = True
+        path.append(node)
+        paths.append(list(path))
+
+        for neighbour in graph.neighbors(node):
+            if visited[neighbour] is False:
+                dfs_path(neighbour, visited, path)
+
+        visited[node] = False
+        path.pop()
+
+    dfs_path(startnode, visited, [])
+
+    return paths
 
 
 def findAllPaths(graph, start, end, path=[]):

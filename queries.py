@@ -100,3 +100,24 @@ fragment TypeRef on __Type {
   }
 }
 """
+
+
+# Anzahl der { - 1 ist länge des Pfades
+def pathLengthFromQuery(query):
+    pathLength = query.count("{") - 1
+    return pathLength
+
+def depth(d):
+    if isinstance(d, dict):
+        return 1 + (max(map(depth, d.values())) if d else 0)
+    return 0
+
+
+def pathLengthFromResult(d):
+    if "data" in d:
+        return depth(d) - 1
+    return 0
+
+
+def compareQueryResults(r, testQuery):
+    return {"expectedPathLength": pathLengthFromQuery(testQuery), "pathLengthFromResult": pathLengthFromResult(r)}
