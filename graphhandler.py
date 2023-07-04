@@ -1,6 +1,6 @@
 from itertools import permutations
-
 import networkx as nx
+import copy
 
 baseDatatypes = ["Boolean", "String", "ID", "Int", "Date", "Float", "INPUT_OBJECT"]
 nonSchemaTypePrefix = "__"
@@ -46,28 +46,12 @@ def findPrimePaths_withFilter(startnode, graph):
     for end in graph:
         if end != startnode:
             all_paths.extend(findAllPaths(graph, startnode, end))
+    print(all_paths)
     prime_paths = [path for path in all_paths if isPrimePath(path, all_paths)]
+    print("###")
+    print(prime_paths)
     return prime_paths
 
-
-def generate_prime_paths(startnode, graph):
-    def visit(node, path):
-        nonlocal paths
-        nonlocal visited
-        if node not in path:
-            path = path + [node]
-            if len(path) > 2 and any(path in p for p in paths if len(path) < len(p)):
-                pass
-            else:
-                paths = [p for p in paths if not (set(path).issubset(set(p)) and len(path) <= len(p))]
-                paths.append(path)
-                for next_node in graph[node]:
-                    visit(next_node, path)
-
-    paths = []
-    visited = set()
-    visit(startnode, [])
-    return paths
 
 def findNodeCoveragePaths(startnode, graph):
     visited = {node: False for node in graph.nodes()}
@@ -149,3 +133,26 @@ def findAllPaths(graph, start, end, path=[]):
             for newpath in newpaths:
                 paths.append(newpath)
     return paths
+
+
+def generate_prime_paths(startknoten, g):
+    pfadliste = []
+    generate_paths(startknoten, [], pfadliste, g)
+    return pfadliste
+
+
+def generate_paths(n, path, pathList, g):
+    path.append(n)
+    for m in g.successors(n):  # successors gibt die Nachfolger eines Knotens in einem DiGraph wieder
+        if m not in path:
+            generate_paths(m, copy.deepcopy(path), pathList, g)
+    if is_prime_path(path, pathList):
+        pathList.append(path)
+
+
+def is_prime_path(new_path, pathList):
+    for exisiting_paths in pathList:
+        if is_subpath(new_path, exisiting_paths):
+            return False
+    return True
+

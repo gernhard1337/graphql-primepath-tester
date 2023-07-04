@@ -3,23 +3,34 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import json
 import requests
+import sys
+import pytest
 # eigene Imports
 import queries
-import datagenerator
 import graphhandler
 import querygenerator
+import pytestgenerator
 
 # testUrls die funktionieren sollten
 # https://rickandmortyapi.com/graphql -> works
 # https://countries.trevorblades.com/graphql -> works but not in fullest
 #
 # http://localhost:4000/graphql -> run minimaltestServer2.js, all works
-testUrl = "https://rickandmortyapi.com/graphql"
-testPerPath = 5
+
+if 0 in sys.argv:
+    testUrl = sys.argv[0]
+else:
+    testUrl = "http://localhost:4000/graphql"
+
+if 1 in sys.argv:
+    testPerPath = sys.argv[1]
+else:
+    testPerPath = 5
+
 # Schema Query
 r = requests.post(testUrl, json={'query': queries.introspection_query})
 json_data = json.loads(r.text)
-with open('data.json', 'w') as f:
+with open('schema.json', 'w') as f:
     json.dump(json_data, f)
 
 # Graph aus Query
@@ -31,8 +42,7 @@ with open('dict.json', "w") as f:
 
 # PrimePaths finden - change method for other coverage if wanted
 graphhandler.buildGraph(graph, "Query", type_dict)
-print(graph.edges("Query"))
-primePaths = graphhandler.findPrimePaths_withFilter("Query", graph)
+primePaths = graphhandler.generate_prime_paths("Query", graph)
 
 # experimentell mal noch andere Pfade die andere Kriterien umsetzen hinzufügen
 #for path in graphhandler.findCompletePathCoverage("Query", graph):
@@ -50,14 +60,28 @@ for primePath in primePaths:
     for x in range(testPerPath):
         primePathQueries.append(querygenerator.pathToQuery(primePath, type_dict, graph))
 
-# Run the Querys
+##############
+# Testsuite using pytest
+# saves a file with pytest-tests; these need to get run individually
+###########
+fileString = ""
+f = open("test_GraphQL.py", "w")
+f.write("import requests")
+f.write("\n")
+f.write("\n")
+for testQuery in primePathQueries:
+    f.write(pytestgenerator.generateTestFromQuery(testQuery, testUrl))
+f.close()
+
+
+################
+# Self-defined Testsuite
+###############
 queryResults = []
 for testQuery in primePathQueries:
-    print(testQuery)
     r = requests.post(testUrl, json={'query': testQuery})
     response_as_dict = json.loads(r.text)
     measurement = queries.compareQueryResults(response_as_dict, testQuery)
-    print(measurement)
     queryResults.append([testQuery, r, measurement])
 
 # Safe the Querys with Results etc in a File for investigation later
@@ -70,24 +94,29 @@ f.close()
 
 # Validate the Querys
 successfull = 0
+perfect = 0
 own_failure = 0
 server_failures = 0
 testCount = 0
+
 for queryResult in queryResults:
     testCount = testCount + 1
     if any(substring in queryResult[1].text for substring in ["GRAPHQL_PARSE_FAILED", "GRAPHQL_VALIDATION_FAILED"]):
         own_failure = own_failure + 1
     elif "INTERNAL_SERVER_ERROR" in queryResult[1].text:
+        print(queryResult[1].text)
         server_failures = server_failures + 1
-    elif "data" in queryResult[1].text:
+    elif "data" in queryResult[1].text and queryResult[2]["expectedPathLength"] > queryResult[2]["pathLengthFromResult"]:
         successfull = successfull + 1
+    elif "data" in queryResult[1].text and queryResult[2]["expectedPathLength"] == queryResult[2]["pathLengthFromResult"]:
+        perfect = perfect + 1
 
 # Those with no failure
 print("Good Tests: " + str(successfull))
 # Those good tests that also have all the data as expected
-print("Perfect Tests: ")
+print("Perfect Tests: " + str(perfect))
 # Those with 400 Failure -> 400 induces that we did something wrong
-print("Own Failures from Tool Tests: " + str(own_failure))
+print("Failed Tests cause of malformed Queries: " + str(own_failure))
 # Those with 500 Failure -> 500 induces that server did something wrong
 print("Confirmed Failed Tests: " + str(server_failures))
 # overall Count
