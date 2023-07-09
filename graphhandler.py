@@ -10,19 +10,19 @@ def buildGraph(graph, type_name, type_dict):
     if type_name.startswith(nonSchemaTypePrefix) or type_name in baseDatatypes:
         pass
     else:
-        for adjacentNode in type_dict[type_name]['fields']:
-            if graph.has_edge(type_name, adjacentNode['type']['name']):
-                return
-            else:
-                if adjacentNode['type']['name'] and adjacentNode['type']['name'] not in baseDatatypes:
-
-                    graph.add_edge(type_name, adjacentNode['type']['name'])
-                    graph[type_name][adjacentNode['type']['name']]["data"] = adjacentNode
-                    buildGraph(graph, adjacentNode['type']['name'], type_dict)
-                if adjacentNode['type']['kind'] == 'LIST' and adjacentNode['type']['ofType']['name'] not in baseDatatypes:
-                    graph.add_edge(type_name, adjacentNode['type']['ofType']['name'])
-                    graph[type_name][adjacentNode['type']['ofType']['name']]["data"] = adjacentNode
-                    buildGraph(graph, adjacentNode['type']['ofType']['name'], type_dict)
+        if type_dict[type_name]['fields']:
+            for adjacentNode in type_dict[type_name]['fields']:
+                if graph.has_edge(type_name, adjacentNode['type']['name']):
+                    return
+                else:
+                    if adjacentNode['type']['name'] and adjacentNode['type']['name'] not in baseDatatypes:
+                        graph.add_edge(type_name, adjacentNode['type']['name'])
+                        graph[type_name][adjacentNode['type']['name']]["data"] = adjacentNode
+                        buildGraph(graph, adjacentNode['type']['name'], type_dict)
+                    if adjacentNode['type']['kind'] == 'LIST' and adjacentNode['type']['ofType']['name'] not in baseDatatypes:
+                        graph.add_edge(type_name, adjacentNode['type']['ofType']['name'])
+                        graph[type_name][adjacentNode['type']['ofType']['name']]["data"] = adjacentNode
+                        buildGraph(graph, adjacentNode['type']['ofType']['name'], type_dict)
 
 
 def is_subpath(path, other_path):
@@ -46,10 +46,7 @@ def findPrimePaths_withFilter(startnode, graph):
     for end in graph:
         if end != startnode:
             all_paths.extend(findAllPaths(graph, startnode, end))
-    print(all_paths)
     prime_paths = [path for path in all_paths if isPrimePath(path, all_paths)]
-    print("###")
-    print(prime_paths)
     return prime_paths
 
 

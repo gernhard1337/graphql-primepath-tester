@@ -16,11 +16,12 @@ import pytestgenerator
 # https://countries.trevorblades.com/graphql -> works but not in fullest
 #
 # http://localhost:4000/graphql -> run minimaltestServer2.js, all works
+# testoken docker windows e9EwB-bNkKDrzECcy-qB
 
 if 0 in sys.argv:
     testUrl = sys.argv[0]
 else:
-    testUrl = "http://localhost:4000/graphql"
+    testUrl = "http://localhost/api/graphql"
 
 if 1 in sys.argv:
     testPerPath = sys.argv[1]
@@ -28,7 +29,7 @@ else:
     testPerPath = 5
 
 # Schema Query
-r = requests.post(testUrl, json={'query': queries.introspection_query})
+r = requests.post(testUrl, json={'query': queries.introspection_query}, headers={'Authorization': 'access_token e9EwB-bNkKDrzECcy-qB'})
 json_data = json.loads(r.text)
 with open('schema.json', 'w') as f:
     json.dump(json_data, f)
@@ -42,7 +43,7 @@ with open('dict.json', "w") as f:
 
 # PrimePaths finden - change method for other coverage if wanted
 graphhandler.buildGraph(graph, "Query", type_dict)
-primePaths = graphhandler.generate_prime_paths("Query", graph)
+paths = graphhandler.generate_prime_paths("Query", graph)
 
 # experimentell mal noch andere Pfade die andere Kriterien umsetzen hinzufügen
 #for path in graphhandler.findCompletePathCoverage("Query", graph):
@@ -55,7 +56,7 @@ primePaths = graphhandler.generate_prime_paths("Query", graph)
 
 # PrimePaths zu Query
 primePathQueries = []
-for primePath in primePaths:
+for primePath in paths:
     # 5 Tests pro Pfad
     for x in range(testPerPath):
         primePathQueries.append(querygenerator.pathToQuery(primePath, type_dict, graph))
@@ -100,6 +101,7 @@ server_failures = 0
 testCount = 0
 
 for queryResult in queryResults:
+    print(queryResult[1].text)
     testCount = testCount + 1
     if any(substring in queryResult[1].text for substring in ["GRAPHQL_PARSE_FAILED", "GRAPHQL_VALIDATION_FAILED"]):
         own_failure = own_failure + 1

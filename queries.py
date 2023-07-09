@@ -107,6 +107,7 @@ def pathLengthFromQuery(query):
     pathLength = query.count("{") - 1
     return pathLength
 
+
 def depth(d):
     if isinstance(d, dict):
         return 1 + (max(map(depth, d.values())) if d else 0)
