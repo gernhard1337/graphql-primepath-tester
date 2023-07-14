@@ -21,7 +21,7 @@ import pytestgenerator
 if 0 in sys.argv:
     testUrl = sys.argv[0]
 else:
-    testUrl = "http://localhost:4000/graphql"
+    testUrl = "https://rickandmortyapi.com/graphql"
 
 if 1 in sys.argv:
     testPerPath = sys.argv[1]
@@ -68,6 +68,12 @@ for primePath in paths:
 fileString = ""
 f = open("test_GraphQL.py", "w")
 f.write("import requests")
+f.write("\n")
+f.write("import queries")
+f.write("\n")
+f.write("import json")
+f.write("\n")
+f.write("import logging")
 f.write("\n")
 f.write("\n")
 for testQuery in primePathQueries:
