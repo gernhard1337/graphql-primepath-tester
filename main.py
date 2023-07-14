@@ -21,7 +21,7 @@ import pytestgenerator
 if 0 in sys.argv:
     testUrl = sys.argv[0]
 else:
-    testUrl = "http://localhost/api/graphql"
+    testUrl = "http://localhost:4000/graphql"
 
 if 1 in sys.argv:
     testPerPath = sys.argv[1]

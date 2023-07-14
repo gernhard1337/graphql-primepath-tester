@@ -53,7 +53,10 @@ def resolveArg(type, typedict):
 
 def addScalarTypes(type, typedict):
     if type["name"] is None:
-        fields = typedict[type["ofType"]["name"]]["fields"]
+        if type["ofType"]["kind"] == "OBJECT":
+            fields = typedict[type["ofType"]["name"]]["fields"]
+        elif type["ofType"]["ofType"]["kind"] == "OBJECT":
+            fields = typedict[type["ofType"]["ofType"]["name"]]["fields"]
     else:
         fields = typedict[type["name"]]["fields"]
     fieldString = ""

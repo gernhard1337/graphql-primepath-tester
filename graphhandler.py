@@ -12,17 +12,18 @@ def buildGraph(graph, type_name, type_dict):
     else:
         if type_dict[type_name]['fields']:
             for adjacentNode in type_dict[type_name]['fields']:
-                if graph.has_edge(type_name, adjacentNode['type']['name']):
-                    return
-                else:
-                    if adjacentNode['type']['name'] and adjacentNode['type']['name'] not in baseDatatypes:
-                        graph.add_edge(type_name, adjacentNode['type']['name'])
-                        graph[type_name][adjacentNode['type']['name']]["data"] = adjacentNode
-                        buildGraph(graph, adjacentNode['type']['name'], type_dict)
-                    if adjacentNode['type']['kind'] == 'LIST' and adjacentNode['type']['ofType']['name'] not in baseDatatypes:
-                        graph.add_edge(type_name, adjacentNode['type']['ofType']['name'])
-                        graph[type_name][adjacentNode['type']['ofType']['name']]["data"] = adjacentNode
-                        buildGraph(graph, adjacentNode['type']['ofType']['name'], type_dict)
+                # Überprüfen, ob der Feldtyp LIST oder NON_NULL ist und behandeln entsprechend
+                nodeType = adjacentNode['type']
+                while nodeType['kind'] in ['LIST', 'NON_NULL']:
+                    nodeType = nodeType['ofType']
+                if nodeType is None or nodeType['name'] in baseDatatypes:
+                    continue
+
+                adjacentNodeName = nodeType['name']
+                if not graph.has_edge(type_name, adjacentNodeName):
+                    graph.add_edge(type_name, adjacentNodeName)
+                    graph[type_name][adjacentNodeName]["data"] = adjacentNode
+                    buildGraph(graph, adjacentNodeName, type_dict)
 
 
 def is_subpath(path, other_path):
